@@ -155,6 +155,25 @@
             padding: 1rem 0 2.5rem 0;
         }
 
+        .hero-graphics {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gates-red);
+            box-shadow: 0 0 30px rgba(213, 25, 0, 0.2);
+            background-color: var(--gates-surface); /* Fallback while loading */
+        }
+
         /* NEW MANUFACTURING BADGE STYLE */
         .manufacturing-badge {
             width: 160px;
@@ -165,7 +184,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 2rem;
             box-shadow: 0 0 35px rgba(242, 106, 27, 0.15), inset 0 0 20px rgba(0,0,0,0.5);
             backdrop-filter: blur(5px);
             position: relative;
@@ -489,6 +507,7 @@
             .hero-section h1 { font-size: 2.3rem; }
             .contact-section h2 { font-size: 2.2rem; }
             .modal-card { padding: 2rem; }
+            .hero-graphics { gap: 1.5rem; }
         }
     </style>
 </head>
@@ -512,31 +531,39 @@
         <!-- TAB 1: HOME -->
         <section id="home" class="tab-content active">
             <div class="hero-container">
-                <!-- CUSTOM MANUFACTURING BADGE GRAPHIC -->
-                <div class="manufacturing-badge">
-                    <svg viewBox="0 0 64 64">
-                        <!-- Factory Building / Manufacturing Plant -->
-                        <path d="M 8 36 V 18 L 22 24 V 14 L 36 20 V 10 H 56 V 36" fill="none" stroke="var(--text-main)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-                        
-                        <!-- Chimney Smoke -->
-                        <circle cx="50" cy="4" r="2.5" fill="var(--gates-orange)"/>
-                        <circle cx="55" cy="0" r="1.5" fill="var(--gates-orange)"/>
-                        <circle cx="44" cy="1" r="1.5" fill="var(--gates-orange)"/>
-                        
-                        <!-- Rubber Power Transmission Belt (Mass Production) -->
-                        <!-- Outer Belt Profile -->
-                        <path d="M 22 36 H 42 A 12 12 0 0 1 42 60 H 22 A 12 12 0 0 1 22 36 Z" fill="none" stroke="var(--gates-red)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                        <!-- Toothed Belt Inner Grooves -->
-                        <path d="M 22 40 H 42 A 8 8 0 0 1 42 56 H 22 A 8 8 0 0 1 22 40 Z" fill="none" stroke="var(--gates-orange)" stroke-width="2" stroke-dasharray="3 3"/>
-                        
-                        <!-- Drive Pulleys / Gears -->
-                        <circle cx="22" cy="48" r="4.5" fill="none" stroke="var(--text-main)" stroke-width="2"/>
-                        <circle cx="22" cy="48" r="1.5" fill="var(--text-main)"/>
-                        
-                        <circle cx="42" cy="48" r="4.5" fill="none" stroke="var(--text-main)" stroke-width="2"/>
-                        <circle cx="42" cy="48" r="1.5" fill="var(--text-main)"/>
-                    </svg>
+                
+                <!-- Added Hero Graphics Container -->
+                <div class="hero-graphics">
+                    <!-- NEW HEADSHOT IMAGE -->
+                    <img src="media/headshot.jpg" alt="Young W. Desanti" class="profile-photo">
+
+                    <!-- CUSTOM MANUFACTURING BADGE GRAPHIC -->
+                    <div class="manufacturing-badge">
+                        <svg viewBox="0 0 64 64">
+                            <!-- Factory Building / Manufacturing Plant -->
+                            <path d="M 8 36 V 18 L 22 24 V 14 L 36 20 V 10 H 56 V 36" fill="none" stroke="var(--text-main)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+                            
+                            <!-- Chimney Smoke -->
+                            <circle cx="50" cy="4" r="2.5" fill="var(--gates-orange)"/>
+                            <circle cx="55" cy="0" r="1.5" fill="var(--gates-orange)"/>
+                            <circle cx="44" cy="1" r="1.5" fill="var(--gates-orange)"/>
+                            
+                            <!-- Rubber Power Transmission Belt (Mass Production) -->
+                            <!-- Outer Belt Profile -->
+                            <path d="M 22 36 H 42 A 12 12 0 0 1 42 60 H 22 A 12 12 0 0 1 22 36 Z" fill="none" stroke="var(--gates-red)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <!-- Toothed Belt Inner Grooves -->
+                            <path d="M 22 40 H 42 A 8 8 0 0 1 42 56 H 22 A 8 8 0 0 1 22 40 Z" fill="none" stroke="var(--gates-orange)" stroke-width="2" stroke-dasharray="3 3"/>
+                            
+                            <!-- Drive Pulleys / Gears -->
+                            <circle cx="22" cy="48" r="4.5" fill="none" stroke="var(--text-main)" stroke-width="2"/>
+                            <circle cx="22" cy="48" r="1.5" fill="var(--text-main)"/>
+                            
+                            <circle cx="42" cy="48" r="4.5" fill="none" stroke="var(--text-main)" stroke-width="2"/>
+                            <circle cx="42" cy="48" r="1.5" fill="var(--text-main)"/>
+                        </svg>
+                    </div>
                 </div>
+
                 <div class="hero-section" style="padding: 0;">
                     <h1>Young W. Desanti, PE</h1>
                     <h2>Senior Development Engineer</h2>
@@ -581,32 +608,32 @@
         <section id="projects" class="tab-content">
             <div class="projects-intro">
                 <h2>Engineering Highlights</h2>
-                <p>Select interactive case studies from industrial applications and research.</p>
+                <p>Select case studies from past work.</p>
             </div>
 
             <div class="projects-grid">
                 <!-- Project 1 -->
                 <div class="project-tile" onclick="openModal('Hyperelastic Material Simulation', 'Incomplete soft tooling formation during the molding process and insufficient pressure transfer inside the valley.', 'Simulated rubber deformation and material flow using FEA.', 'Achieved a comprehensive understanding of development issues, leading to refined design approaches.')">
                     <h3>Hyperelastic Material Simulation</h3>
-                    <div class="project-tile-cta">View Case Study &rarr;</div>
+                    <div class="project-tile-cta">View Selection &rarr;</div>
                 </div>
 
                 <!-- Project 2 -->
                 <div class="project-tile" onclick="openModal('Advanced Material Characterization', 'Initiated crack propagation and insufficient testing capability for rubber fatigue analysis.', 'Integrated machine vision systems with an MTS instrument, created custom fixtures, and converted raw data into model inputs.', 'Significantly improved modeling capabilities for the simulation team.')">
                     <h3>Advanced Material Characterization</h3>
-                    <div class="project-tile-cta">View Case Study &rarr;</div>
+                    <div class="project-tile-cta">View Selection &rarr;</div>
                 </div>
 
                 <!-- Project 3 -->
                 <div class="project-tile" onclick="openModal('Elastomer Tribology', 'Reducing rubber contact friction while maintaining grip under dry and wet surface conditions.', 'Down-selected friction modifiers for performance and manufacturing feasibility; experimented with texturized materials like jersey knits, nonwovens, and polyolefin blends.', 'Successfully met performance requirements while drastically slashing total product cost (TPC).')">
                     <h3>Elastomer Tribology</h3>
-                    <div class="project-tile-cta">View Case Study &rarr;</div>
+                    <div class="project-tile-cta">View Selection &rarr;</div>
                 </div>
 
                 <!-- Project 4 -->
                 <div class="project-tile" onclick="openModal('Thermoelectric Dryer Prototype (ORNL)', 'Undefined structural baseline and physical design ambiguity for an energy-efficient thermoelectric dryer.', 'Served as principal CAD designer, developing 3D models and structural assemblies incorporating thermoelectric modules and visual glass casing.', 'Enhanced visual clarity and streamlined workflows for subsequent heat cycle calculations.')">
-                    <h3>Thermoelectric Dryer Prototype (ORNL)</h3>
-                    <div class="project-tile-cta">View Case Study &rarr;</div>
+                    <h3>Novel Prototype Design</h3>
+                    <div class="project-tile-cta">View Selection &rarr;</div>
                 </div>
             </div>
         </section>
@@ -614,7 +641,6 @@
         <!-- TAB 3: CONTACT -->
         <section id="contact" class="tab-content">
             <div class="contact-section">
-                <h2>Let's Connect</h2>
                 <p>Feel free to reach out and connect.</p>
                 <a href="https://www.linkedin.com/in/young-desanti-53095ab9/" target="_blank" class="btn-industrial">Connect on LinkedIn</a>
             </div>
