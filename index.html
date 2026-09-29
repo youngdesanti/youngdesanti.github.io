@@ -182,6 +182,8 @@
             margin-bottom: 0.5rem;
             color: var(--text-main);
             text-transform: uppercase;
+            display: flex;
+            align-items: center;
         }
 
         .hero-section h2 {
@@ -264,12 +266,40 @@
             text-decoration: underline;
         }
 
+        /* Education Typography Updates */
+        .education-item {
+            white-space: nowrap; 
+            overflow: hidden; 
+            text-overflow: ellipsis; /* Ensures it doesn't break the layout if viewport is super narrow */
+        }
+        
+        .education-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+        
+        .education-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        
+        .education-link {
+            font-size: 0.78rem;
+        }
+        
+        .education-detail {
+            font-size: 0.72rem;
+            display: block;
+            margin-top: 4px;
+        }
+
         /* Stack & Badges Grouping */
         .badge-group-title {
             display: block;
             font-size: 0.8rem;
             color: var(--text-muted);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             font-family: 'Roboto Condensed', sans-serif;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -280,16 +310,16 @@
         .badge-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.4rem; /* tighter spacing to save height */
         }
 
         .badge {
             background-color: rgba(255, 170, 0, 0.1);
             border: 1px solid rgba(255, 170, 0, 0.3);
             color: var(--gates-orange);
-            padding: 0.4rem 0.9rem;
+            padding: 0.35rem 0.75rem; /* smaller padding */
             border-radius: 2px;
-            font-size: 0.82rem;
+            font-size: 0.75rem; /* smaller font */
             font-family: 'Roboto Condensed', sans-serif;
             letter-spacing: 0.5px;
             text-transform: uppercase;
@@ -509,11 +539,12 @@
 
         .media-grid img, .media-grid video {
             width: 100%;
-            height: auto;
+            height: 200px; 
+            object-fit: contain; 
             border-radius: 4px;
             border: 1px solid var(--border-color);
-            background-color: #000;
-            cursor: pointer; /* Suggests clicking for lightbox */
+            background-color: rgba(0, 0, 0, 0.2);
+            cursor: pointer; 
             transition: transform 0.2s, border-color 0.2s;
         }
 
@@ -724,13 +755,16 @@
                 <div class="card">
                     <h3>Education</h3>
                     <ul>
-                        <li><strong>MSc, Mechanical Engineering</strong><br>
-                            <span style="white-space: nowrap;"><a href="https://illinois.edu/" target="_blank" class="text-link">University of Illinois at Urbana-Champaign</a></span><br>
-                            <span style="font-size: 0.85rem; display: inline-block; margin-top: 4px;">Master's Thesis: <a href="https://www.ideals.illinois.edu/items/102509" target="_blank" class="text-link"><em>[Insert Full Thesis Title Here]</em></a></span>
+                        <li class="education-item" style="margin-bottom: 0.8rem;">
+                            <span class="education-title">MSc, Mechanical Engineering</span> <span class="education-date">(05/2017)</span><br>
+                            <a href="https://illinois.edu/" target="_blank" class="text-link education-link">University of Illinois at Urbana-Champaign</a><br>
+                            <span class="education-detail" style="color: var(--text-muted);">Research area: military explosives, combustion diagnostics</span>
+                            <span class="education-detail" style="color: var(--text-main);">Master's Thesis: <a href="https://www.ideals.illinois.edu/items/102509" target="_blank" class="text-link"><em>Blast diagnostic tools and techniques: a review</em></a></span>
                         </li>
                         <br>
-                        <li><strong>BSc, Mechanical Engineering, Physics Minor</strong><br>
-                            <span style="white-space: nowrap;"><a href="https://www.iastate.edu/" target="_blank" class="text-link">Iowa State University of Science and Technology</a></span>
+                        <li class="education-item">
+                            <span class="education-title">BSc, Mechanical Engineering, Physics Minor</span> <span class="education-date">(05/2015)</span><br>
+                            <a href="https://www.iastate.edu/" target="_blank" class="text-link education-link">Iowa State University of Science and Technology</a>
                         </li>
                     </ul>
                 </div>
@@ -739,16 +773,15 @@
                     <h3>Core Competencies & Stack</h3>
                     
                     <span class="badge-group-title">Engineering & Manufacturing</span>
-                    <div class="badge-container" style="margin-bottom: 1.25rem;">
+                    <div class="badge-container" style="margin-bottom: 0.8rem;">
                         <span class="badge">Product Design / Scaling</span>
                         <span class="badge">Rubber Manufacturing</span>
                         <span class="badge">Elastomer Mechanics</span>
-                        <span class="badge">Thermoplastics</span>
-                        <span class="badge">Technical Fabrics</span>
+                        <span class="badge">Thermoplastics & Technical Fabrics</span>
                     </div>
 
                     <span class="badge-group-title">Software & Tools</span>
-                    <div class="badge-container" style="margin-bottom: 1.25rem;">
+                    <div class="badge-container" style="margin-bottom: 0.8rem;">
                         <span class="badge software">Solidworks / NX / CATIA V5</span>
                         <span class="badge software">FEA (Cadence Marc, Abaqus)</span>
                         <span class="badge software">Minitab / MATLAB / Python</span>
@@ -838,7 +871,7 @@
     </footer>
 
     <script>
-        // Project Data Object (Autoplay removed from videos to require manual play)
+        // Project Data Object
         const projectData = {
             hyperelastic: {
                 title: 'Hyperelastic Material Simulation',
@@ -879,9 +912,9 @@
                 actions: 'Served as principal CAD designer, developing 3D models and structural assemblies incorporating thermoelectric modules and visual glass casing.',
                 results: 'Enhanced visual clarity and streamlined workflows for subsequent heat cycle calculations.',
                 mediaHtml: `
-                    <div class="media-grid single">
-                        <figure>
-                            <img src="media/thermoelectric.jpg" alt="Thermoelectric Dryer Prototype">
+                    <div class="media-grid single" style="text-align: center;">
+                        <figure style="display: inline-block;">
+                            <img src="media/thermoelectric.jpg" alt="Thermoelectric Dryer Prototype" style="max-width: 220px; height: auto;">
                             <figcaption>Image from ORNL (CAD by Young Desanti).</figcaption>
                         </figure>
                     </div>
