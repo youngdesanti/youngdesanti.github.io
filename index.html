@@ -38,7 +38,7 @@
             position: relative;
         }
 
-        /* Industrial Tool Pattern Overlay (Wrenches, Gears, Cars, Planes, Batteries, Engines) */
+        /* Industrial Tool Pattern Overlay */
         .industrial-bg {
             position: fixed;
             top: 0;
@@ -48,7 +48,6 @@
             pointer-events: none;
             z-index: 0;
             opacity: 1;
-            /* Expanded SVG Pattern with multiple industrial symbols */
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400' fill='%23ffffff' fill-opacity='0.03' stroke='%23ffffff' stroke-width='2' stroke-opacity='0.03'%3E%3Cg transform='translate(30, 40) scale(1.5)' fill='none'%3E%3Cpath d='M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z'/%3E%3C/g%3E%3Cg transform='translate(120, 250) scale(1.5)'%3E%3Ccircle cx='12' cy='12' r='4' fill='none'/%3E%3Cpath d='M12 2v2m0 16v2m10-10h-2m-16 0H2m15.07-7.07l-1.41 1.41M4.93 17.07l-1.41 1.41m14.14 0l-1.41-1.41M4.93 4.93l-1.41-1.41' stroke-width='2' stroke-linecap='round'/%3E%3C/g%3E%3Cg transform='translate(300, 50) scale(1.5)' fill='none'%3E%3Cpath d='M17.8 19.2L16 11l4-4c1.1-1.1 1.1-2.8 0-3.9-1.1-1.1-2.8-1.1-3.9 0l-4 4-8.2-1.8-1.9 1.9 8.2 4.1-4 4-2.8-.7-1.4 1.4 3.5 3.5 3.5 3.5 1.4-1.4-.7-2.8 4-4 4.1 8.2 1.9-1.9z'/%3E%3C/g%3E%3Cg transform='translate(200, 150) scale(1.5)' fill='none'%3E%3Cpath d='M3 10h18M3 10l2-4h10l2 4M3 10v4h18v-4m-16 4v2m14-2v2'/%3E%3Ccircle cx='7' cy='16' r='2'/%3E%3Ccircle cx='17' cy='16' r='2'/%3E%3C/g%3E%3Cg transform='translate(50, 180) scale(1.8)' fill='none'%3E%3Crect x='3' y='7' width='16' height='10' rx='2'/%3E%3Cpath d='M19 10v4'/%3E%3Cpath d='M7 12h2M13 12h2M14 11v2'/%3E%3C/g%3E%3Cg transform='translate(320, 260) scale(1.5)' fill='none'%3E%3Cpath d='M4 4h16v8H4zm4 8v8m8-8v8m-10 2h12'/%3E%3Ccircle cx='12' cy='18' r='2'/%3E%3C/g%3E%3C/svg%3E");
             background-size: 400px 400px;
         }
@@ -129,7 +128,7 @@
         main {
             flex: 1;
             width: 100%;
-            max-width: 1400px; /* Slightly wider to accommodate 4 columns */
+            max-width: 1400px; 
             margin: 0 auto;
             padding: 8rem 2rem 4rem 2rem;
             position: relative;
@@ -165,14 +164,14 @@
         }
 
         .profile-photo {
-            width: 260px; /* Bigger High Definition Size */
+            width: 260px; 
             height: 260px;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid var(--gates-red);
             box-shadow: 0 0 45px rgba(0, 210, 255, 0.25), inset 0 0 20px rgba(0,0,0,0.8);
             background-color: var(--gates-surface);
-            image-rendering: -webkit-optimize-contrast; /* Sharpens High Definition Output */
+            image-rendering: -webkit-optimize-contrast; 
         }
 
         .hero-section h1 {
@@ -202,7 +201,7 @@
             font-weight: 300;
         }
 
-        /* 3-Column Layout for Home Details */
+        /* 3-Column Layout */
         .grid-layout {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -252,6 +251,18 @@
             font-weight: 500;
         }
 
+        /* Inline Text Links */
+        .text-link {
+            color: var(--gates-red);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .text-link:hover {
+            color: var(--gates-orange);
+            text-decoration: underline;
+        }
+
         /* Badges */
         .badge-container {
             display: flex;
@@ -269,6 +280,21 @@
             font-family: 'Roboto Condensed', sans-serif;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        a.badge {
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        a.badge:hover {
+            background-color: var(--gates-orange);
+            color: var(--gates-dark);
+            border-color: var(--gates-orange);
         }
 
         /* Projects Section */
@@ -291,7 +317,6 @@
             font-weight: 300;
         }
 
-        /* 4-Column Layout for Projects */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -366,13 +391,21 @@
             border-top: 4px solid var(--gates-red);
             border-radius: 4px;
             width: 90%;
-            max-width: 650px;
+            max-width: 700px;
+            max-height: 90vh; /* Added max height */
+            overflow-y: auto; /* Allow scrolling for tall media */
             padding: 3rem;
             position: relative;
             transform: scale(0.95);
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 20px 60px rgba(0,0,0,0.9);
         }
+
+        /* Custom Scrollbar for Modal */
+        .modal-card::-webkit-scrollbar { width: 8px; }
+        .modal-card::-webkit-scrollbar-track { background: var(--gates-surface); }
+        .modal-card::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+        .modal-card::-webkit-scrollbar-thumb:hover { background: var(--gates-red); }
 
         .modal-overlay.active .modal-card {
             transform: scale(1);
@@ -425,6 +458,65 @@
             color: var(--text-muted);
         }
 
+        /* Modal Media Styling */
+        .modal-media-container {
+            margin-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+            display: none; /* Hidden by default if empty */
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .media-grid.single {
+            grid-template-columns: 1fr;
+        }
+
+        .media-grid img, .media-grid video {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            background-color: #000;
+        }
+
+        .media-grid figure {
+            margin: 0;
+            text-align: center;
+        }
+
+        .media-grid figcaption {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .project-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .project-links a {
+            color: var(--gates-red);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .project-links a:hover {
+            color: var(--gates-orange);
+            text-decoration: underline;
+        }
+
         /* Contact Section */
         .contact-section {
             display: flex;
@@ -450,7 +542,6 @@
             margin-bottom: 2.5rem;
         }
 
-        /* Industrial High-Impact Button */
         .btn-industrial {
             display: inline-block;
             background-color: var(--gates-red);
@@ -532,7 +623,6 @@
         <section id="home" class="tab-content active">
             <div class="hero-container">
                 <div class="hero-graphics">
-                    <!-- BIGGER HD HEADSHOT IMAGE MOVED TO THE LEFT -->
                     <img src="media/headshot.jpg" alt="Young W. Desanti" class="profile-photo">
                 </div>
 
@@ -543,7 +633,6 @@
                 </div>
             </div>
 
-            <!-- CARDS ALL ON ONE LINE -->
             <div class="grid-layout">
                 <div class="card">
                     <h3>Background</h3>
@@ -555,9 +644,14 @@
                 <div class="card">
                     <h3>Education</h3>
                     <ul>
-                        <li><strong>MSc, Mechanical Engineering</strong><br>University of Illinois (Urbana-Champaign, IL)</li>
+                        <li><strong>MSc, Mechanical Engineering</strong><br>
+                            <a href="https://illinois.edu/" target="_blank" class="text-link">University of Illinois</a> (Urbana-Champaign, IL)<br>
+                            <span style="font-size: 0.85rem; display: inline-block; margin-top: 4px;">Master's Thesis: <a href="https://www.ideals.illinois.edu/items/102509" target="_blank" class="text-link">View Publication</a></span>
+                        </li>
                         <br>
-                        <li><strong>BSc, Mechanical Engineering, Physics Minor</strong><br>Iowa State University (Ames, IA)</li>
+                        <li><strong>BSc, Mechanical Engineering, Physics Minor</strong><br>
+                            <a href="https://www.iastate.edu/" target="_blank" class="text-link">Iowa State University of Science and Technology</a> (Ames, IA)
+                        </li>
                     </ul>
                 </div>
 
@@ -571,7 +665,8 @@
                         <span class="badge">Solidworks / NX / CATIA V5</span>
                         <span class="badge">FEA (Cadence Marc, Abaqus)</span>
                         <span class="badge">Minitab / MATLAB / Python</span>
-                        <span class="badge">Licensed PE (Colorado)</span>
+                        <!-- Clickable PE Badge -->
+                        <a href="media/PublicDocument.pdf" target="_blank" class="badge">Licensed PE (Colorado) ↗</a>
                     </div>
                 </div>
             </div>
@@ -584,28 +679,27 @@
                 <p>Select case studies from past work.</p>
             </div>
 
-            <!-- ALL 4 PROJECTS ON THE SAME LINE -->
             <div class="projects-grid">
                 <!-- Project 1 -->
-                <div class="project-tile" onclick="openModal('Hyperelastic Material Simulation', 'Incomplete soft tooling formation during the molding process and insufficient pressure transfer inside the valley.', 'Simulated rubber deformation and material flow using FEA.', 'Achieved a comprehensive understanding of development issues, leading to refined design approaches.')">
+                <div class="project-tile" onclick="openProjectModal('hyperelastic')">
                     <h3>Hyperelastic Material Simulation</h3>
                     <div class="project-tile-cta">View Selection &rarr;</div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="project-tile" onclick="openModal('Advanced Material Characterization', 'Initiated crack propagation and insufficient testing capability for rubber fatigue analysis.', 'Integrated machine vision systems with an MTS instrument, created custom fixtures, and converted raw data into model inputs.', 'Significantly improved modeling capabilities for the simulation team.')">
+                <div class="project-tile" onclick="openProjectModal('fatigue')">
                     <h3>Advanced Material Characterization</h3>
                     <div class="project-tile-cta">View Selection &rarr;</div>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="project-tile" onclick="openModal('Elastomer Tribology', 'Reducing rubber contact friction while maintaining grip under dry and wet surface conditions.', 'Down-selected friction modifiers for performance and manufacturing feasibility; experimented with texturized materials like jersey knits, nonwovens, and polyolefin blends.', 'Successfully met performance requirements while drastically slashing total product cost (TPC).')">
+                <div class="project-tile" onclick="openProjectModal('tribology')">
                     <h3>Elastomer Tribology</h3>
                     <div class="project-tile-cta">View Selection &rarr;</div>
                 </div>
 
                 <!-- Project 4 -->
-                <div class="project-tile" onclick="openModal('Thermoelectric Dryer Prototype (ORNL)', 'Undefined structural baseline and physical design ambiguity for an energy-efficient thermoelectric dryer.', 'Served as principal CAD designer, developing 3D models and structural assemblies incorporating thermoelectric modules and visual glass casing.', 'Enhanced visual clarity and streamlined workflows for subsequent heat cycle calculations.')">
+                <div class="project-tile" onclick="openProjectModal('thermoelectric')">
                     <h3>Novel Prototype Design</h3>
                     <div class="project-tile-cta">View Selection &rarr;</div>
                 </div>
@@ -628,16 +722,18 @@
             <h2 id="modalTitle">Project Title</h2>
             <div class="modal-detail-row">
                 <span class="detail-label">Problem</span>
-                <span class="detail-text" id="modalProblem">Problem description goes here.</span>
+                <span class="detail-text" id="modalProblem"></span>
             </div>
             <div class="modal-detail-row" style="margin-top: 1.5rem;">
                 <span class="detail-label">Actions Taken</span>
-                <span class="detail-text" id="modalActions">Actions description goes here.</span>
+                <span class="detail-text" id="modalActions"></span>
             </div>
             <div class="modal-detail-row" style="margin-top: 1.5rem;">
                 <span class="detail-label">Results</span>
-                <span class="detail-text" id="modalResults">Results description goes here.</span>
+                <span class="detail-text" id="modalResults"></span>
             </div>
+            <!-- Dynamic Media & Links Container -->
+            <div id="modalMedia" class="modal-media-container"></div>
         </div>
     </div>
 
@@ -646,6 +742,63 @@
     </footer>
 
     <script>
+        // Project Data Object
+        const projectData = {
+            hyperelastic: {
+                title: 'Hyperelastic Material Simulation',
+                problem: 'Incomplete soft tooling formation during the molding process and insufficient pressure transfer inside the valley.',
+                actions: 'Simulated rubber deformation and material flow using FEA.',
+                results: 'Achieved a comprehensive understanding of development issues, leading to refined design approaches.',
+                mediaHtml: `
+                    <div class="media-grid">
+                        <video src="media/negativeflow.mp4" controls autoplay loop muted></video>
+                        <video src="media/positiveflow.mp4" controls autoplay loop muted></video>
+                        <img src="media/stress.jpg" alt="Stress Analysis">
+                    </div>
+                `
+            },
+            fatigue: {
+                title: 'Advanced Material Characterization',
+                problem: 'Initiated crack propagation and insufficient testing capability for rubber fatigue analysis.',
+                actions: 'Integrated machine vision systems with an MTS instrument, created custom fixtures, and converted raw data into model inputs.',
+                results: 'Significantly improved modeling capabilities for the simulation team.',
+                mediaHtml: `
+                    <div class="media-grid">
+                        <img src="media/fatigue1.jpg" alt="Fatigue Testing Phase 1">
+                        <img src="media/fatigue2.jpg" alt="Fatigue Testing Phase 2">
+                        <img src="media/fatigue3.jpg" alt="Fatigue Testing Phase 3">
+                    </div>
+                `
+            },
+            tribology: {
+                title: 'Elastomer Tribology',
+                problem: 'Reducing rubber contact friction while maintaining grip under dry and wet surface conditions.',
+                actions: 'Down-selected friction modifiers for performance and manufacturing feasibility; experimented with texturized materials like jersey knits, nonwovens, and polyolefin blends.',
+                results: 'Successfully met performance requirements while drastically slashing total product cost (TPC).',
+                mediaHtml: '' // No media added for this project yet
+            },
+            thermoelectric: {
+                title: 'Novel Prototype Design (ORNL)',
+                problem: 'Undefined structural baseline and physical design ambiguity for an energy-efficient thermoelectric dryer.',
+                actions: 'Served as principal CAD designer, developing 3D models and structural assemblies incorporating thermoelectric modules and visual glass casing.',
+                results: 'Enhanced visual clarity and streamlined workflows for subsequent heat cycle calculations.',
+                mediaHtml: `
+                    <div class="media-grid single">
+                        <figure>
+                            <img src="media/thermoelectric.jpg" alt="Thermoelectric Dryer Prototype">
+                            <figcaption>Image from ORNL.</figcaption>
+                        </figure>
+                    </div>
+                    <div class="project-links">
+                        <span class="detail-label">Related Coverage</span>
+                        <a href="https://phys.org/news/2016-04-energy-dryers-thermoelectric-technology.html" target="_blank">&rarr; Phys.org News Article</a>
+                        <a href="https://www.energy.gov/cmei/buildings/articles/novel-energy-efficient-thermoelectric-clothes-dryer" target="_blank">&rarr; ORNL / DOE Reference Page</a>
+                        <a href="https://web.ornl.gov/sci/buildings/docs/Buildings-Newsletter-April-2016.pdf" target="_blank">&rarr; ORNL Buildings Newsletter (See Page 4)</a>
+                    </div>
+                `
+            }
+        };
+
         function switchTab(event, tabId) {
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
@@ -657,16 +810,35 @@
             event.currentTarget.classList.add('active');
         }
 
-        function openModal(title, problem, actions, results) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalProblem').innerText = problem;
-            document.getElementById('modalActions').innerText = actions;
-            document.getElementById('modalResults').innerText = results;
+        function openProjectModal(projectId) {
+            const data = projectData[projectId];
+            if (!data) return;
+
+            // Populate Text
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalProblem').innerText = data.problem;
+            document.getElementById('modalActions').innerText = data.actions;
+            document.getElementById('modalResults').innerText = data.results;
+
+            // Populate Media & Links
+            const mediaContainer = document.getElementById('modalMedia');
+            if (data.mediaHtml.trim() !== '') {
+                mediaContainer.innerHTML = data.mediaHtml;
+                mediaContainer.style.display = 'block';
+            } else {
+                mediaContainer.innerHTML = '';
+                mediaContainer.style.display = 'none';
+            }
+
+            // Show Modal
             document.getElementById('projectModal').classList.add('active');
         }
 
         function closeModal() {
             document.getElementById('projectModal').classList.remove('active');
+            // Pause videos when closing modal
+            const videos = document.getElementById('modalMedia').querySelectorAll('video');
+            videos.forEach(video => video.pause());
         }
 
         function closeModalOnBg(event) {
