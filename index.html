@@ -738,7 +738,7 @@
                 </div>
 
                 <div class="hero-section">
-                    <h1>Young W. Desanti, PE</h1>
+                    <h1>Young W. Desanti </h1>
                     <h2>Senior Development Engineer</h2>
                     <p>Bridging advanced elastomer mechanics, mechanical design, and robust product development from concept to mass production.</p>
                 </div>
@@ -748,7 +748,7 @@
                 <div class="card">
                     <h3>Background</h3>
                     <p style="color: var(--text-muted); font-weight: 300; font-size: 0.95rem;">
-                        Senior Development Engineer at Gates Industrial Corporation managing the complete product development lifecycle of power transmission belts (OEM and aftermarket). Experienced in material down-selecting, prototyping, physical laboratory testing, and introducing novel manufacturing technologies.
+                        Senior Development Engineer at Gates Industrial Corporation managing the complete product development lifecycle of OEM and aftermarket power transmission belts. Experienced in end-to-end rubber manufacturing, prototyping, new product development, and scaling production through novel manufacturing methods.
                     </p>
                 </div>
 
@@ -756,14 +756,14 @@
                     <h3>Education</h3>
                     <ul>
                         <li class="education-item" style="margin-bottom: 0.8rem;">
-                            <span class="education-title">MSc, Mechanical Engineering</span> <span class="education-date">(05/2017)</span><br>
+                            <span class="education-title">MSc, Mechanical Engineering</span> <span class="education-date"></span><br>
                             <a href="https://illinois.edu/" target="_blank" class="text-link education-link">University of Illinois at Urbana-Champaign</a><br>
                             <span class="education-detail" style="color: var(--text-muted);">Research area: military explosives, combustion diagnostics</span>
                             <span class="education-detail" style="color: var(--text-main);">Master's Thesis: <a href="https://www.ideals.illinois.edu/items/102509" target="_blank" class="text-link"><em>Blast diagnostic tools and techniques: a review</em></a></span>
                         </li>
                         <br>
                         <li class="education-item">
-                            <span class="education-title">BSc, Mechanical Engineering, Physics Minor</span> <span class="education-date">(05/2015)</span><br>
+                            <span class="education-title">BSc, Mechanical Engineering, Physics Minor</span> <span class="education-date"></span><br>
                             <a href="https://www.iastate.edu/" target="_blank" class="text-link education-link">Iowa State University of Science and Technology</a>
                         </li>
                     </ul>
@@ -774,10 +774,11 @@
                     
                     <span class="badge-group-title">Engineering & Manufacturing</span>
                     <div class="badge-container" style="margin-bottom: 0.8rem;">
-                        <span class="badge">Product Design / Scaling</span>
+                        <span class="badge">Product Design</span>
+                        <span class="badge">Prodcution Scaling</span>
                         <span class="badge">Rubber Manufacturing</span>
                         <span class="badge">Elastomer Mechanics</span>
-                        <span class="badge">Thermoplastics & Technical Fabrics</span>
+                        <span class="badge">Thermoplastics/Technical Fabrics</span>
                     </div>
 
                     <span class="badge-group-title">Software & Tools</span>
@@ -798,8 +799,7 @@
         <!-- TAB 2: PROJECTS -->
         <section id="projects" class="tab-content">
             <div class="projects-intro">
-                <h2>Engineering Highlights</h2>
-                <p>Select case studies from past work.</p>
+                <h2>Select case studies from past work</h2>
             </div>
 
             <div class="projects-grid">
@@ -875,9 +875,9 @@
         const projectData = {
             hyperelastic: {
                 title: 'Hyperelastic Material Simulation',
-                problem: 'Incomplete soft tooling formation during the molding process and insufficient pressure transfer inside the valley.',
+                problem: 'Incomplete soft tooling formation during the molding process.',
                 actions: 'Simulated rubber deformation and material flow using FEA.',
-                results: 'Achieved a comprehensive understanding of development issues, leading to refined design approaches.',
+                results: 'More comprehensive knowledge pertaining to stress propagation in tooling geometry, leading to enhanced understanding of development issues and refined design approaches.',
                 mediaHtml: `
                     <div class="media-grid">
                         <video src="media/negativeflow.mp4" controls></video>
@@ -888,8 +888,8 @@
             },
             fatigue: {
                 title: 'Advanced Material Characterization',
-                problem: 'Initiated crack propagation and insufficient testing capability for rubber fatigue analysis.',
-                actions: 'Integrated machine vision systems with an MTS instrument, created custom fixtures, and converted raw data into model inputs.',
+                problem: 'Insufficient testing capability for rubber fatigue analysis.',
+                actions: 'Integrated machine vision systems with existing MTS instruments, developed custom fixtures and new test procedures, converted raw data into useful model inputs.',
                 results: 'Significantly improved modeling capabilities for the simulation team.',
                 mediaHtml: `
                     <div class="media-grid">
@@ -902,20 +902,27 @@
             tribology: {
                 title: 'Elastomer Tribology',
                 problem: 'Reducing rubber contact friction while maintaining grip under dry and wet surface conditions.',
-                actions: 'Down-selected friction modifiers for performance and manufacturing feasibility; experimented with texturized materials like jersey knits, nonwovens, and polyolefin blends.',
-                results: 'Successfully met performance requirements while drastically slashing total product cost (TPC).',
-                mediaHtml: '' 
+                actions: 'Downselected friction modifiers for cost, performance, and manufacturing feasibility; experimentation with new materials and manufacturing procedures.',
+                results: 'Meeting performance requirements while slashing total product cost (TPC).',
+                mediaHtml: ` 
+                  mediaHtml: `
+                    <div class="media-grid single" style="text-align: center;">
+                        <figure style="display: inline-block;">
+                            <img src="media/tribology.jpg" alt="Tribology" style="max-width: 220px; height: auto;">
+                        </figure>
+                    </div>
+                `
             },
             thermoelectric: {
                 title: 'Novel Prototype Design (ORNL)',
-                problem: 'Undefined structural baseline and physical design ambiguity for an energy-efficient thermoelectric dryer.',
-                actions: 'Served as principal CAD designer, developing 3D models and structural assemblies incorporating thermoelectric modules and visual glass casing.',
+                problem: 'Undefined structural baseline on what the prototype would look like, ambiguity with no clear direction on physical design.',
+                actions: 'Developed 3D models and structural assemblies incorporating thermoelectric modules, optimizing component placement inside prototype assembly.',
                 results: 'Enhanced visual clarity and streamlined workflows for subsequent heat cycle calculations.',
                 mediaHtml: `
                     <div class="media-grid single" style="text-align: center;">
                         <figure style="display: inline-block;">
                             <img src="media/thermoelectric.jpg" alt="Thermoelectric Dryer Prototype" style="max-width: 220px; height: auto;">
-                            <figcaption>Image from ORNL (CAD by Young Desanti).</figcaption>
+                            <figcaption>Image from Oak Ridge National Laboratory</figcaption>
                         </figure>
                     </div>
                     <div class="project-links">
