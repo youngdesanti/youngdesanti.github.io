@@ -14,6 +14,7 @@
             --gates-red: #00d2ff;       /* Tech Cyan */
             --gates-red-hover: #00a5cc; 
             --gates-orange: #ffaa00;    /* Industrial Warning Yellow/Orange */
+            --gates-green: #00ffaa;     /* Certification Green */
             --text-main: #f1f5f9;
             --text-muted: #94a3b8;
             --border-color: #303645;
@@ -263,7 +264,19 @@
             text-decoration: underline;
         }
 
-        /* Badges */
+        /* Stack & Badges Grouping */
+        .badge-group-title {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            font-family: 'Roboto Condensed', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.2rem;
+        }
+
         .badge-container {
             display: flex;
             flex-wrap: wrap;
@@ -283,6 +296,18 @@
             transition: var(--transition);
         }
 
+        .badge.software {
+            color: var(--gates-red);
+            background-color: rgba(0, 210, 255, 0.1);
+            border-color: rgba(0, 210, 255, 0.3);
+        }
+
+        .badge.pe {
+            color: var(--gates-green);
+            background-color: rgba(0, 255, 170, 0.1);
+            border-color: rgba(0, 255, 170, 0.3);
+        }
+
         a.badge {
             text-decoration: none;
             cursor: pointer;
@@ -295,6 +320,12 @@
             background-color: var(--gates-orange);
             color: var(--gates-dark);
             border-color: var(--gates-orange);
+        }
+        
+        a.badge.pe:hover {
+            background-color: var(--gates-green);
+            color: var(--gates-dark);
+            border-color: var(--gates-green);
         }
 
         /* Projects Section */
@@ -392,8 +423,8 @@
             border-radius: 4px;
             width: 90%;
             max-width: 700px;
-            max-height: 90vh; /* Added max height */
-            overflow-y: auto; /* Allow scrolling for tall media */
+            max-height: 90vh;
+            overflow-y: auto;
             padding: 3rem;
             position: relative;
             transform: scale(0.95);
@@ -401,7 +432,6 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.9);
         }
 
-        /* Custom Scrollbar for Modal */
         .modal-card::-webkit-scrollbar { width: 8px; }
         .modal-card::-webkit-scrollbar-track { background: var(--gates-surface); }
         .modal-card::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
@@ -463,7 +493,7 @@
             margin-top: 2rem;
             border-top: 1px solid var(--border-color);
             padding-top: 1.5rem;
-            display: none; /* Hidden by default if empty */
+            display: none;
         }
 
         .media-grid {
@@ -483,6 +513,13 @@
             border-radius: 4px;
             border: 1px solid var(--border-color);
             background-color: #000;
+            cursor: pointer; /* Suggests clicking for lightbox */
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .media-grid img:hover, .media-grid video:hover {
+            transform: scale(1.02);
+            border-color: var(--gates-red);
         }
 
         .media-grid figure {
@@ -515,6 +552,49 @@
         .project-links a:hover {
             color: var(--gates-orange);
             text-decoration: underline;
+        }
+
+        /* High-Res Lightbox */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 4px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem; right: 2rem;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: color 0.2s;
+            z-index: 3001;
+        }
+
+        .lightbox-close:hover {
+            color: var(--gates-red);
         }
 
         /* Contact Section */
@@ -645,28 +725,38 @@
                     <h3>Education</h3>
                     <ul>
                         <li><strong>MSc, Mechanical Engineering</strong><br>
-                            <a href="https://illinois.edu/" target="_blank" class="text-link">University of Illinois</a> (Urbana-Champaign, IL)<br>
-                            <span style="font-size: 0.85rem; display: inline-block; margin-top: 4px;">Master's Thesis: <a href="https://www.ideals.illinois.edu/items/102509" target="_blank" class="text-link">View Publication</a></span>
+                            <span style="white-space: nowrap;"><a href="https://illinois.edu/" target="_blank" class="text-link">University of Illinois at Urbana-Champaign</a></span><br>
+                            <span style="font-size: 0.85rem; display: inline-block; margin-top: 4px;">Master's Thesis: <a href="https://www.ideals.illinois.edu/items/102509" target="_blank" class="text-link"><em>[Insert Full Thesis Title Here]</em></a></span>
                         </li>
                         <br>
                         <li><strong>BSc, Mechanical Engineering, Physics Minor</strong><br>
-                            <a href="https://www.iastate.edu/" target="_blank" class="text-link">Iowa State University of Science and Technology</a> (Ames, IA)
+                            <span style="white-space: nowrap;"><a href="https://www.iastate.edu/" target="_blank" class="text-link">Iowa State University of Science and Technology</a></span>
                         </li>
                     </ul>
                 </div>
 
                 <div class="card">
                     <h3>Core Competencies & Stack</h3>
-                    <div class="badge-container">
+                    
+                    <span class="badge-group-title">Engineering & Manufacturing</span>
+                    <div class="badge-container" style="margin-bottom: 1.25rem;">
+                        <span class="badge">Product Design / Scaling</span>
                         <span class="badge">Rubber Manufacturing</span>
                         <span class="badge">Elastomer Mechanics</span>
                         <span class="badge">Thermoplastics</span>
                         <span class="badge">Technical Fabrics</span>
-                        <span class="badge">Solidworks / NX / CATIA V5</span>
-                        <span class="badge">FEA (Cadence Marc, Abaqus)</span>
-                        <span class="badge">Minitab / MATLAB / Python</span>
-                        <!-- Clickable PE Badge -->
-                        <a href="media/PublicDocument.pdf" target="_blank" class="badge">Licensed PE (Colorado) ↗</a>
+                    </div>
+
+                    <span class="badge-group-title">Software & Tools</span>
+                    <div class="badge-container" style="margin-bottom: 1.25rem;">
+                        <span class="badge software">Solidworks / NX / CATIA V5</span>
+                        <span class="badge software">FEA (Cadence Marc, Abaqus)</span>
+                        <span class="badge software">Minitab / MATLAB / Python</span>
+                    </div>
+
+                    <span class="badge-group-title">Certifications</span>
+                    <div class="badge-container">
+                        <a href="media/PublicDocument.pdf" target="_blank" class="badge pe">Licensed PE (Colorado) ↗</a>
                     </div>
                 </div>
             </div>
@@ -737,12 +827,18 @@
         </div>
     </div>
 
+    <!-- Lightbox for High-Res Media -->
+    <div id="mediaLightbox" class="lightbox-overlay" onclick="closeLightboxOnBg(event)">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <div id="lightboxContainer" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;"></div>
+    </div>
+
     <footer>
         <p>&copy; 2026 Young W. Desanti. All rights reserved.</p>
     </footer>
 
     <script>
-        // Project Data Object
+        // Project Data Object (Autoplay removed from videos to require manual play)
         const projectData = {
             hyperelastic: {
                 title: 'Hyperelastic Material Simulation',
@@ -751,8 +847,8 @@
                 results: 'Achieved a comprehensive understanding of development issues, leading to refined design approaches.',
                 mediaHtml: `
                     <div class="media-grid">
-                        <video src="media/negativeflow.mp4" controls autoplay loop muted></video>
-                        <video src="media/positiveflow.mp4" controls autoplay loop muted></video>
+                        <video src="media/negativeflow.mp4" controls></video>
+                        <video src="media/positiveflow.mp4" controls></video>
                         <img src="media/stress.jpg" alt="Stress Analysis">
                     </div>
                 `
@@ -775,7 +871,7 @@
                 problem: 'Reducing rubber contact friction while maintaining grip under dry and wet surface conditions.',
                 actions: 'Down-selected friction modifiers for performance and manufacturing feasibility; experimented with texturized materials like jersey knits, nonwovens, and polyolefin blends.',
                 results: 'Successfully met performance requirements while drastically slashing total product cost (TPC).',
-                mediaHtml: '' // No media added for this project yet
+                mediaHtml: '' 
             },
             thermoelectric: {
                 title: 'Novel Prototype Design (ORNL)',
@@ -786,7 +882,7 @@
                     <div class="media-grid single">
                         <figure>
                             <img src="media/thermoelectric.jpg" alt="Thermoelectric Dryer Prototype">
-                            <figcaption>Image from ORNL.</figcaption>
+                            <figcaption>Image from ORNL (CAD by Young Desanti).</figcaption>
                         </figure>
                     </div>
                     <div class="project-links">
@@ -799,6 +895,7 @@
             }
         };
 
+        // Tab Switching
         function switchTab(event, tabId) {
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
@@ -810,33 +907,40 @@
             event.currentTarget.classList.add('active');
         }
 
+        // Standard Modal Logic
         function openProjectModal(projectId) {
             const data = projectData[projectId];
             if (!data) return;
 
-            // Populate Text
             document.getElementById('modalTitle').innerText = data.title;
             document.getElementById('modalProblem').innerText = data.problem;
             document.getElementById('modalActions').innerText = data.actions;
             document.getElementById('modalResults').innerText = data.results;
 
-            // Populate Media & Links
             const mediaContainer = document.getElementById('modalMedia');
             if (data.mediaHtml.trim() !== '') {
                 mediaContainer.innerHTML = data.mediaHtml;
                 mediaContainer.style.display = 'block';
+                
+                // Attach lightbox click handlers to new media
+                const mediaElements = mediaContainer.querySelectorAll('img, video');
+                mediaElements.forEach(el => {
+                    el.addEventListener('click', function(e) {
+                        // For videos, don't trigger lightbox if clicking the play button/controls
+                        if (el.tagName === 'VIDEO' && e.offsetY > el.offsetHeight - 50) return;
+                        openLightbox(this);
+                    });
+                });
             } else {
                 mediaContainer.innerHTML = '';
                 mediaContainer.style.display = 'none';
             }
 
-            // Show Modal
             document.getElementById('projectModal').classList.add('active');
         }
 
         function closeModal() {
             document.getElementById('projectModal').classList.remove('active');
-            // Pause videos when closing modal
             const videos = document.getElementById('modalMedia').querySelectorAll('video');
             videos.forEach(video => video.pause());
         }
@@ -844,6 +948,38 @@
         function closeModalOnBg(event) {
             if (event.target.id === 'projectModal') {
                 closeModal();
+            }
+        }
+
+        // Lightbox Logic
+        function openLightbox(element) {
+            const container = document.getElementById('lightboxContainer');
+            container.innerHTML = ''; // Clear previous
+
+            if (element.tagName === 'IMG') {
+                const img = document.createElement('img');
+                img.src = element.src;
+                img.className = 'lightbox-content';
+                container.appendChild(img);
+            } else if (element.tagName === 'VIDEO') {
+                const video = document.createElement('video');
+                video.src = element.currentSrc || element.src;
+                video.className = 'lightbox-content';
+                video.controls = true;
+                container.appendChild(video);
+            }
+
+            document.getElementById('mediaLightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('mediaLightbox').classList.remove('active');
+            document.getElementById('lightboxContainer').innerHTML = ''; // Stops video
+        }
+
+        function closeLightboxOnBg(event) {
+            if (event.target.id === 'mediaLightbox' || event.target.id === 'lightboxContainer') {
+                closeLightbox();
             }
         }
     </script>
