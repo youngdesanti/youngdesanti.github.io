@@ -267,7 +267,7 @@
         
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             gap: 1.5rem;
         }
 
@@ -793,6 +793,10 @@
         }
 
         /* Responsive Breakpoints */
+        @media (max-width: 1200px) {
+            .projects-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
         @media (max-width: 1024px) {
             .grid-layout { grid-template-columns: 1fr; }
             .projects-grid { grid-template-columns: repeat(2, 1fr); }
@@ -924,25 +928,31 @@
                 <!-- Project 1 -->
                 <div class="project-tile" onclick="openProjectModal('hyperelastic')">
                     <h3>Hyperelastic Material Simulation</h3>
-                    <div class="project-tile-cta">View Selection &rarr;</div>
+                    <div class="project-tile-cta">View Details &rarr;</div>
                 </div>
 
                 <!-- Project 2 -->
                 <div class="project-tile" onclick="openProjectModal('fatigue')">
                     <h3>Advanced Material Characterization</h3>
-                    <div class="project-tile-cta">View Selection &rarr;</div>
+                    <div class="project-tile-cta">View Details &rarr;</div>
                 </div>
 
                 <!-- Project 3 -->
                 <div class="project-tile" onclick="openProjectModal('tribology')">
                     <h3>Elastomer Tribology</h3>
-                    <div class="project-tile-cta">View Selection &rarr;</div>
+                    <div class="project-tile-cta">View Details &rarr;</div>
                 </div>
 
-                <!-- Project 4 -->
+                <!-- Project 4 (Inserted: Next-Gen Manufacturing) -->
+                <div class="project-tile" onclick="openProjectModal('flexmolding')">
+                    <h3>Next-Gen Manufacturing (Flex Molding)</h3>
+                    <div class="project-tile-cta">View Details &rarr;</div>
+                </div>
+
+                <!-- Project 5 -->
                 <div class="project-tile" onclick="openProjectModal('thermoelectric')">
                     <h3>Novel Prototype Design</h3>
-                    <div class="project-tile-cta">View Selection &rarr;</div>
+                    <div class="project-tile-cta">View Details &rarr;</div>
                 </div>
             </div>
         </section>
@@ -995,7 +1005,7 @@
                 title: 'Hyperelastic Material Simulation',
                 problem: 'Incomplete soft tooling formation during the molding process.',
                 actions: 'Simulated rubber deformation and material flow using FEA.',
-                results: 'More comprehensive knowledge pertaining to stress propagation in tooling geometry, leading to enhanced understanding of development issues and refined design approaches.',
+                results: 'Mapped stress propagation within tooling geometry, providing actionable insights that refined design approaches and accelerated issue resolution.',
                 mediaHtml: `
                     <div class="media-grid">
                         <video src="media/negativeflow.mp4" controls></video>
@@ -1007,7 +1017,7 @@
             fatigue: {
                 title: 'Advanced Material Characterization',
                 problem: 'Insufficient testing capability for rubber fatigue analysis.',
-                actions: 'Integrated machine vision systems with existing MTS instrument, developed custom fixtures and test procedures for rubber crack propagation.',
+                actions: 'Integrated machine vision systems with existing MTS instrument; developed custom fixtures and test procedures for rubber crack propagation.',
                 results: 'Significantly improved modeling capabilities for the simulation team.',
                 mediaHtml: `
                     <div class="media-grid">
@@ -1019,9 +1029,9 @@
             },
             tribology: {
                 title: 'Elastomer Tribology',
-                problem: 'Reducing rubber contact friction while maintaining grip under dry and wet surface conditions.',
-                actions: 'Downselected friction modifiers for cost, performance, and manufacturing feasibility; experimentation with new materials and manufacturing procedures.',
-                results: 'Meeting performance requirements while slashing the total product cost (TPC).',
+                problem: 'High rubber contact friction compromising performance; required a solution to reduce friction while maintaining grip in dry and wet conditions.',
+                actions: 'Downselected friction modifiers based on cost, performance, and feasibility, and experimented with novel materials and manufacturing procedures.',
+                results: 'Achieved target performance metrics while significantly reducing Total Product Cost (TPC).',
                 mediaHtml: `
                     <div class="media-grid" style="text-align: center;">
                         <figure style="display: inline-block;">
@@ -1034,9 +1044,20 @@
                     </div>
                 `
             },
+            flexmolding: {
+                title: 'Next-Gen Manufacturing (Flex Molding)',
+                problem: 'High volume production using traditional steel molds is cumbersome, requiring periodic lubrication and outsourced tooling manufacturing to adjust for sizing.',
+                actions: 'Developed and implemented novel manufacturing methods using flexible soft tooling in lieu of traditional steel molds.',
+                results: 'Eliminated complex logistical needs for tooling, increased production output, and reduced Total Product Cost (TPC) through material savings.',
+                mediaHtml: `
+                    <div class="media-grid single">
+                        <video src="media/flexmold.mp4" controls></video>
+                    </div>
+                `
+            },
             thermoelectric: {
                 title: 'Novel Prototype Design (ORNL)',
-                problem: 'Undefined structural baseline on what the prototype would look like, ambiguity with no clear direction on physical design.',
+                problem: 'Lack of a structural baseline and clear design direction for the physical prototype.',
                 actions: 'Developed 3D models and structural assemblies incorporating thermoelectric modules, optimizing component placement inside prototype assembly.',
                 results: 'Enhanced visual clarity and streamlined workflows for subsequent heat cycle calculations.',
                 mediaHtml: `
