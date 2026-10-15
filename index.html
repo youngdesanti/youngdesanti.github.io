@@ -792,4 +792,431 @@
             font-family: 'Roboto Condensed', sans-serif;
             text-transform: uppercase;
             font-size: 0.9rem;
-            font-weight:
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 1rem 3rem;
+            text-decoration: none;
+            transition: var(--transition);
+            clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+        }
+
+        .btn-industrial:hover {
+            background-color: var(--gates-red-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(211, 160, 82, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            font-family: 'Roboto Condensed', sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-top: 1px solid var(--border-color);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1200px) {
+            .projects-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* Tablets & Smaller Screens */
+        @media (max-width: 1024px) {
+            .grid-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* Mobile Phones (iPhone) */
+        @media (max-width: 768px) {
+            header { 
+                padding: 1rem 1.5rem; 
+                flex-direction: column; 
+                gap: 1rem; 
+            }
+            header::after { display: none; }
+            main { padding-top: 7rem; }
+            
+            /* Center the Hero Section on Mobile */
+            .hero-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 1.5rem;
+                padding-bottom: 1rem;
+            }
+            .profile-photo { 
+                width: 150px; 
+                height: 150px; 
+            }
+            .hero-section h1 { font-size: 2.2rem; }
+            .hero-section h2 { font-size: 0.95rem; }
+            .hero-section p { font-size: 0.9rem; }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-section h2 { 
+                font-size: 2.2rem; 
+            }
+            .modal-card { 
+                padding: 2rem; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="industrial-bg"></div>
+
+    <header>
+        <div class="logo">
+            <div class="logo-indicator"></div>
+            Young W. Desanti // Polymer & Elastomer Systems
+        </div>
+        <nav>
+            <button class="nav-btn active" onclick="switchTab(event, 'home')">Home</button>
+            <button class="nav-btn" onclick="switchTab(event, 'projects')">Projects</button>
+            <button class="nav-btn" onclick="switchTab(event, 'contact')">Contact</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- TAB 1: HOME -->
+        <section id="home" class="tab-content active">
+            
+            <div class="grid-layout">
+                
+                <!-- 1. HERO / NAME SECTION (Top Left) -->
+                <div class="hero-container">
+                    <div class="hero-graphics">
+                        <img src="media/headshot.jpg" alt="Young W. Desanti" class="profile-photo">
+                    </div>
+
+                    <div class="hero-section">
+                        <h1>Young W. Desanti, PE </h1>
+                        <h2>Senior Development Engineer</h2>
+                        <p>Bridging advanced elastomer technology, mechanical design, and robust product development from concept to mass production.</p>
+                    </div>
+                </div>
+
+                <!-- 2. VIDEO CARD (Top Right) -->
+                <div class="card">
+                    <h3>Automotive Surfacing Demo</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; font-weight: 300; margin-bottom: 1rem;">
+                        Gen 2 Model 3 surface modeling showcase, executed in NX Shape Studio.
+                    </p>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/60bXmGlKKMo" title="Automotive Surfacing Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- 3. COMBINED CARD: Background & Education (Bottom Left) -->
+                <div class="card">
+                    <h3>Background</h3>
+                    <p style="color: var(--text-muted); font-weight: 300; font-size: 0.95rem; margin-bottom: 2rem;">
+                        Senior Development Engineer at Gates Industrial Corporation, managing the complete product development lifecycle of OEM and aftermarket power transmission belts. 
+                        Experienced in end-to-end rubber manufacturing, prototyping, product development, and production scaling through novel manufacturing methods.
+                    </p>
+                    
+                    <h4>Education</h4>
+                    <ul>
+                        <li class="education-item" style="margin-bottom: 1.25rem;">
+                            <span class="education-title">MSc, Mechanical Engineering</span> <span class="education-date"></span><br>
+                            <a href="https://illinois.edu/" target="_blank" class="text-link education-link">University of Illinois at Urbana-Champaign</a><br>
+                            <span class="education-detail" style="color: var(--text-muted);">Research area: military explosives, combustion diagnostics</span>
+                            <span class="education-detail" style="color: var(--text-main);">Master's Thesis: <a href="https://www.ideals.illinois.edu/items/102509" target="_blank" class="text-link"><em>Blast Diagnostic Tools and Techniques: A Review</em></a></span>
+                        </li>
+                        <li class="education-item">
+                            <span class="education-title">BSc, Mechanical Engineering, Physics Minor</span> <span class="education-date"></span><br>
+                            <a href="https://www.iastate.edu/" target="_blank" class="text-link education-link">Iowa State University of Science and Technology</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 4. RIGHT CARD: Stack & Certs (Bottom Right) -->
+                <div class="card">
+                    <h3>Core Competencies & Stack</h3>
+                    
+                    <span class="badge-group-title">Engineering & Manufacturing</span>
+                    <div class="badge-container" style="margin-bottom: 0.8rem;">
+                        <span class="badge">Product Design</span>
+                        <span class="badge">Production Scaling</span>
+                        <span class="badge">Rubber Manufacturing</span>
+                        <span class="badge">Elastomer Mechanics</span>
+                        <span class="badge">Thermoplastics / Textiles</span>
+                    </div>
+
+                    <span class="badge-group-title">Software & Tools</span>
+                    <div class="badge-container" style="margin-bottom: 0.8rem;">
+                        <span class="badge software">SOLIDWORKS / NX / CATIA V5</span>
+                        <span class="badge software">FEA (Cadence Marc, Abaqus)</span>
+                        <span class="badge software">Minitab / MATLAB / Python</span>
+                    </div>
+
+                    <span class="badge-group-title">Certifications</span>
+                    <div class="badge-container" style="margin-bottom: 0.8rem;">
+                        <a href="media/PublicDocument.pdf" target="_blank" class="badge pe">Licensed PE (Colorado) ↗</a>
+                    </div>
+
+                    <span class="badge-group-title">Patent Grants</span>
+                    <div class="badge-container">
+                        <a href="https://patents.google.com/patent/US10995821B2/en?oq=US10995821B2" target="_blank" class="badge pe">US Patent 10,995,821 ↗</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TAB 2: PROJECTS -->
+        <section id="projects" class="tab-content">
+            <div class="projects-intro">
+                <h2>Select case studies from past work</h2>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-tile" onclick="openProjectModal('hyperelastic')">
+                    <h3>Hyperelastic Material Simulation</h3>
+                    <div class="project-tile-cta">View Details &rarr;</div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-tile" onclick="openProjectModal('fatigue')">
+                    <h3>Advanced Material Characterization</h3>
+                    <div class="project-tile-cta">View Details &rarr;</div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-tile" onclick="openProjectModal('tribology')">
+                    <h3>Elastomer Tribology</h3>
+                    <div class="project-tile-cta">View Details &rarr;</div>
+                </div>
+
+                <!-- Project 4 (Inserted: Next-Gen Manufacturing) -->
+                <div class="project-tile" onclick="openProjectModal('flexmolding')">
+                    <h3>Next-Gen Manufacturing (Flex Molding)</h3>
+                    <div class="project-tile-cta">View Details &rarr;</div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-tile" onclick="openProjectModal('thermoelectric')">
+                    <h3>Novel Prototype Design</h3>
+                    <div class="project-tile-cta">View Details &rarr;</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: CONTACT -->
+        <section id="contact" class="tab-content">
+            <div class="contact-section">
+                <p>Feel free to reach out and connect.</p>
+                <a href="https://www.linkedin.com/in/young-desanti-53095ab9/" target="_blank" class="btn-industrial">Connect on LinkedIn</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Interactive Modal -->
+    <div id="projectModal" class="modal-overlay" onclick="closeModalOnBg(event)">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2 id="modalTitle">Project Title</h2>
+            <div class="modal-detail-row">
+                <span class="detail-label">Problem</span>
+                <span class="detail-text" id="modalProblem"></span>
+            </div>
+            <div class="modal-detail-row" style="margin-top: 1.5rem;">
+                <span class="detail-label">Actions Taken</span>
+                <span class="detail-text" id="modalActions"></span>
+            </div>
+            <div class="modal-detail-row" style="margin-top: 1.5rem;">
+                <span class="detail-label">Results</span>
+                <span class="detail-text" id="modalResults"></span>
+            </div>
+            <!-- Dynamic Media & Links Container -->
+            <div id="modalMedia" class="modal-media-container"></div>
+        </div>
+    </div>
+
+    <!-- Lightbox for High-Res Media -->
+    <div id="mediaLightbox" class="lightbox-overlay" onclick="closeLightboxOnBg(event)">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <div id="lightboxContainer" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Young W. Desanti. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Project Data Object
+        const projectData = {
+            hyperelastic: {
+                title: 'Hyperelastic Material Simulation',
+                problem: 'Incomplete soft tooling formation during the molding process.',
+                actions: 'Simulated rubber deformation and material flow using FEA.',
+                results: 'Mapped stress propagation within tooling geometry, providing actionable insights that refined design approaches and accelerated issue resolution.',
+                mediaHtml: `
+                    <div class="media-grid">
+                        <video src="media/negativeflow.mp4" controls></video>
+                        <video src="media/positiveflow.mp4" controls></video>
+                        <img src="media/stress.jpg" alt="Stress Analysis">
+                    </div>
+                `
+            },
+            fatigue: {
+                title: 'Advanced Material Characterization',
+                problem: 'Insufficient testing capability for rubber fatigue analysis.',
+                actions: 'Integrated machine vision systems with existing MTS instrument; developed custom fixtures and test procedures for rubber crack propagation.',
+                results: 'Significantly improved modeling capabilities for the simulation team.',
+                mediaHtml: `
+                    <div class="media-grid">
+                        <img src="media/fatigue1.jpg" alt="Fatigue Testing Phase 1">
+                        <img src="media/fatigue2.jpg" alt="Fatigue Testing Phase 2">
+                        <img src="media/fatigue3.jpg" alt="Fatigue Testing Phase 3">
+                    </div>
+                `
+            },
+            tribology: {
+                title: 'Elastomer Tribology',
+                problem: 'High rubber contact friction compromising performance; required a solution to reduce friction while maintaining grip in dry and wet conditions.',
+                actions: 'Downselected friction modifiers based on cost, performance, and feasibility, and experimented with novel materials and manufacturing procedures.',
+                results: 'Achieved target performance metrics while significantly reducing Total Product Cost (TPC).',
+                mediaHtml: `
+                    <div class="media-grid" style="text-align: center;">
+                        <figure style="display: inline-block;">
+                            <img src="media/tribology.jpg" alt="Tribology" style="max-width: 220px; height: auto;">
+                        </figure>
+                        <figure style="display: inline-block;">
+                            <img src="media/mid1.jpg" alt="Rubber composite cross section" style="max-width: 220px; height: auto;">
+                            <figcaption>Rubber composite cross section</figcaption>
+                        </figure>
+                    </div>
+                `
+            },
+            flexmolding: {
+                title: 'Next-Gen Manufacturing (Flex Molding)',
+                problem: 'High volume production using traditional steel molds is cumbersome, requiring periodic lubrication and outsourced tooling manufacturing to adjust for sizing.',
+                actions: 'Developed and implemented novel manufacturing methods using flexible soft tooling in lieu of traditional steel molds.',
+                results: 'Eliminated complex logistical needs for tooling, increased production output, and reduced Total Product Cost (TPC) through material savings.',
+                mediaHtml: `
+                    <div class="media-grid single">
+                        <video src="media/flexmold.mp4" controls></video>
+                    </div>
+                `
+            },
+            thermoelectric: {
+                title: 'Novel Prototype Design (ORNL)',
+                problem: 'Lack of a structural baseline and clear design direction for the physical prototype.',
+                actions: 'Developed 3D models and structural assemblies incorporating thermoelectric modules, optimizing component placement inside prototype assembly.',
+                results: 'Enhanced visual clarity and streamlined workflows for subsequent heat cycle calculations.',
+                mediaHtml: `
+                    <div class="media-grid single" style="text-align: center;">
+                        <figure style="display: inline-block;">
+                            <img src="media/thermoelectric.jpg" alt="Thermoelectric Dryer Prototype" style="max-width: 220px; height: auto;">
+                            <figcaption>Image from Oak Ridge National Laboratory</figcaption>
+                        </figure>
+                    </div>
+                    <div class="project-links">
+                        <span class="detail-label">Related Coverage</span>
+                        <a href="https://phys.org/news/2016-04-energy-dryers-thermoelectric-technology.html" target="_blank">&rarr; Phys.org News Article</a>
+                        <a href="https://www.energy.gov/cmei/buildings/articles/novel-energy-efficient-thermoelectric-clothes-dryer" target="_blank">&rarr; ORNL / DOE Reference Page</a>
+                        <a href="https://web.ornl.gov/sci/buildings/docs/Buildings-Newsletter-April-2016.pdf" target="_blank">&rarr; ORNL Buildings Newsletter (See Page 4)</a>
+                    </div>
+                `
+            }
+        };
+
+        // Tab Switching
+        function switchTab(event, tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // Standard Modal Logic
+        function openProjectModal(projectId) {
+            const data = projectData[projectId];
+            if (!data) return;
+
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalProblem').innerText = data.problem;
+            document.getElementById('modalActions').innerText = data.actions;
+            document.getElementById('modalResults').innerText = data.results;
+
+            const mediaContainer = document.getElementById('modalMedia');
+            if (data.mediaHtml.trim() !== '') {
+                mediaContainer.innerHTML = data.mediaHtml;
+                mediaContainer.style.display = 'block';
+                
+                // Attach lightbox click handlers to new media
+                const mediaElements = mediaContainer.querySelectorAll('img, video');
+                mediaElements.forEach(el => {
+                    el.addEventListener('click', function(e) {
+                        // For videos, don't trigger lightbox if clicking the play button/controls
+                        if (el.tagName === 'VIDEO' && e.offsetY > el.offsetHeight - 50) return;
+                        openLightbox(this);
+                    });
+                });
+            } else {
+                mediaContainer.innerHTML = '';
+                mediaContainer.style.display = 'none';
+            }
+
+            document.getElementById('projectModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').classList.remove('active');
+            const videos = document.getElementById('modalMedia').querySelectorAll('video');
+            videos.forEach(video => video.pause());
+        }
+
+        function closeModalOnBg(event) {
+            if (event.target.id === 'projectModal') {
+                closeModal();
+            }
+        }
+
+        // Lightbox Logic
+        function openLightbox(element) {
+            const container = document.getElementById('lightboxContainer');
+            container.innerHTML = ''; // Clear previous
+
+            if (element.tagName === 'IMG') {
+                const img = document.createElement('img');
+                img.src = element.src;
+                img.className = 'lightbox-content';
+                container.appendChild(img);
+            } else if (element.tagName === 'VIDEO') {
+                const video = document.createElement('video');
+                video.src = element.currentSrc || element.src;
+                video.className = 'lightbox-content';
+                video.controls = true;
+                container.appendChild(video);
+            }
+
+            document.getElementById('mediaLightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('mediaLightbox').classList.remove('active');
+            document.getElementById('lightboxContainer').innerHTML = ''; // Stops video
+        }
+
+        function closeLightboxOnBg(event) {
+            if (event.target.id === 'mediaLightbox' || event.target.id === 'lightboxContainer') {
+                closeLightbox();
+            }
+        }
+    </script>
+</body>
+</html>
